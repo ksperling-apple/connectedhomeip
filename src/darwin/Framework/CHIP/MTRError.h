@@ -16,11 +16,12 @@
  */
 
 #import <Foundation/Foundation.h>
+#import <Matter/MTRDefines.h>
 
 NS_ASSUME_NONNULL_BEGIN
-FOUNDATION_EXPORT NSErrorDomain const MTRErrorDomain;
 
-FOUNDATION_EXPORT NSErrorDomain const MTRInteractionErrorDomain;
+MTR_EXPORT MTR_EXTERN NSErrorDomain const MTRErrorDomain;
+MTR_EXPORT MTR_EXTERN NSErrorDomain const MTRInteractionErrorDomain;
 
 /**
  * MTRErrorDomain contains errors caused by data processing the framework
@@ -59,6 +60,7 @@ typedef NS_ERROR_ENUM(MTRErrorDomain, MTRErrorCode){
      * into a fabric when it's already part of that fabric.
      */
     MTRErrorCodeFabricExists         = 11,
+    MTRErrorCodeNotHandled           = 12,
 };
 // clang-format on
 

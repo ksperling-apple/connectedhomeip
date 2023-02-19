@@ -118,6 +118,9 @@
 		3D84374B29498BAE0070D20A /* privilege-storage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3D84374A29498BAE0070D20A /* privilege-storage.cpp */; };
 		3D843756294AD25A0070D20A /* MTRCertificateInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D843754294AD25A0070D20A /* MTRCertificateInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3D843757294AD25A0070D20A /* MTRCertificateInfo.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3D843755294AD25A0070D20A /* MTRCertificateInfo.mm */; };
+		3DB125FF299F3AF6008859CD /* MTRCompletionGuard.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DB125FD299F3AF6008859CD /* MTRCompletionGuard.h */; };
+		3DB12600299F3AF6008859CD /* MTRCompletionGuard.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3DB125FE299F3AF6008859CD /* MTRCompletionGuard.mm */; };
+		3DB12602299F4189008859CD /* MTRCompletionGuardTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3DB12601299F4188008859CD /* MTRCompletionGuardTests.mm */; };
 		3DECCB6E29347D2D00585AEC /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DECCB6D29347D2C00585AEC /* Security.framework */; };
 		3DECCB702934AECD00585AEC /* MTRLogging.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DECCB6F2934AC1C00585AEC /* MTRLogging.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3DECCB722934AFE200585AEC /* MTRLogging.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3DECCB712934AFE200585AEC /* MTRLogging.mm */; };
@@ -392,6 +395,9 @@
 		3D84374A29498BAE0070D20A /* privilege-storage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "privilege-storage.cpp"; path = "util/privilege-storage.cpp"; sourceTree = "<group>"; };
 		3D843754294AD25A0070D20A /* MTRCertificateInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTRCertificateInfo.h; sourceTree = "<group>"; };
 		3D843755294AD25A0070D20A /* MTRCertificateInfo.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MTRCertificateInfo.mm; sourceTree = "<group>"; };
+		3DB125FD299F3AF6008859CD /* MTRCompletionGuard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTRCompletionGuard.h; sourceTree = "<group>"; };
+		3DB125FE299F3AF6008859CD /* MTRCompletionGuard.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MTRCompletionGuard.mm; sourceTree = "<group>"; };
+		3DB12601299F4188008859CD /* MTRCompletionGuardTests.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MTRCompletionGuardTests.mm; sourceTree = "<group>"; };
 		3DECCB6D29347D2C00585AEC /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		3DECCB6F2934AC1C00585AEC /* MTRLogging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTRLogging.h; sourceTree = "<group>"; };
 		3DECCB712934AFE200585AEC /* MTRLogging.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MTRLogging.mm; sourceTree = "<group>"; };
@@ -922,6 +928,8 @@
 				5A60370727EA1FF60020DB79 /* MTRClusterStateCacheContainer+XPC.h */,
 				99D466E02798936D0089A18F /* MTRCommissioningParameters.h */,
 				99AECC7F2798A57E00B6355B /* MTRCommissioningParameters.mm */,
+				3DB125FD299F3AF6008859CD /* MTRCompletionGuard.h */,
+				3DB125FE299F3AF6008859CD /* MTRCompletionGuard.mm */,
 				51E030FE27EA20D20083DC9C /* MTRControllerAccessControl.h */,
 				51E030FF27EA20D20083DC9C /* MTRControllerAccessControl.mm */,
 				3DFCB32B29678C9500332B35 /* MTRConversion.h */,
@@ -1015,6 +1023,7 @@
 				51C8E3F72825CDB600D47D00 /* MTRTestKeys.m */,
 				51D10D2D2808E2CA00E8CA3D /* MTRTestStorage.m */,
 				3DFCB3282966684500332B35 /* MTRCertificateInfoTests.m */,
+				3DB12601299F4188008859CD /* MTRCompletionGuardTests.mm */,
 				99C65E0F267282F1003402F6 /* MTRControllerTests.m */,
 				5AE6D4E327A99041001F2493 /* MTRDeviceTests.m */,
 				5A6FEC9C27B5E48800F25F42 /* MTRXPCProtocolTests.m */,
@@ -1160,6 +1169,7 @@
 				7596A84828762783004DAE0E /* MTRAsyncCallbackWorkQueue.h in Headers */,
 				5A7947E527C0129F00434CF2 /* MTRDeviceController+XPC.h in Headers */,
 				B2E0D7B4245B0B5C003C5B48 /* MTRError_Internal.h in Headers */,
+				3DB125FF299F3AF6008859CD /* MTRCompletionGuard.h in Headers */,
 				1EDCE545289049A100E41EC9 /* MTROTAHeader.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1354,6 +1364,7 @@
 				2C8C8FC2253E0C2100797F05 /* MTRPersistentStorageDelegateBridge.mm in Sources */,
 				99AECC802798A57F00B6355B /* MTRCommissioningParameters.mm in Sources */,
 				2CB7163C252E8A7C0026E2BB /* MTRDeviceControllerDelegateBridge.mm in Sources */,
+				3DB12600299F3AF6008859CD /* MTRCompletionGuard.mm in Sources */,
 				997DED162695343400975E97 /* MTRThreadOperationalDataset.mm in Sources */,
 				515C1C6F284F9FFB00A48F0C /* MTRFramework.mm in Sources */,
 				51029DF6293AA6100087AFB0 /* MTROperationalCertificateIssuer.mm in Sources */,
@@ -1416,6 +1427,7 @@
 				51C8E3F82825CDB600D47D00 /* MTRTestKeys.m in Sources */,
 				99C65E10267282F1003402F6 /* MTRControllerTests.m in Sources */,
 				1E5801C328941C050033A199 /* MTRTestOTAProvider.m in Sources */,
+				3DB12602299F4189008859CD /* MTRCompletionGuardTests.mm in Sources */,
 				5A6FEC9D27B5E48900F25F42 /* MTRXPCProtocolTests.m in Sources */,
 				5AE6D4E427A99041001F2493 /* MTRDeviceTests.m in Sources */,
 				510CECA8297F72970064E0B3 /* MTROperationalCertificateIssuerTests.m in Sources */,
@@ -1605,7 +1617,7 @@
 				OTHER_LDFLAGS = "-Wl,-unexported_symbol,\"__Z*\"";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos appletvos appletvsimulator watchos watchsimulator";
-				SUPPORTS_TEXT_BASED_API = YES;
+				SUPPORTS_TEXT_BASED_API = NO;
 				TARGETED_DEVICE_FAMILY = "1,2,3,4";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
