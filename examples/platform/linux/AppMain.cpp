@@ -488,8 +488,6 @@ exit:
 
 void ChipLinuxAppMainLoop(AppMainLoopImplementation * impl)
 {
-    gMainLoopImplementation = impl;
-
     static chip::CommonCaseDeviceServerInitParams initParams;
     VerifyOrDie(initParams.InitializeStaticResourcesBeforeServerInit() == CHIP_NO_ERROR);
 
@@ -611,13 +609,14 @@ void ChipLinuxAppMainLoop(AppMainLoopImplementation * impl)
 
     if (impl != nullptr)
     {
+        gMainLoopImplementation = impl;
         impl->RunMainLoop();
+        gMainLoopImplementation = nullptr;
     }
     else
     {
         DeviceLayer::PlatformMgr().RunEventLoop();
     }
-    gMainLoopImplementation = nullptr;
 
     ApplicationShutdown();
 

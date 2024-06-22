@@ -16,6 +16,7 @@
  */
 
 #include <AppMain.h>
+#include <app/clusters/thread-network-directory-server/thread-network-directory-server.h>
 #include <app/clusters/wifi-network-management-server/wifi-network-management-server.h>
 #include <lib/core/CHIPSafeCasts.h>
 #include <lib/support/Span.h>
@@ -25,6 +26,7 @@ using namespace chip::app;
 using namespace chip::app::Clusters;
 
 void ApplicationInit() {}
+
 void ApplicationShutdown() {}
 
 ByteSpan ByteSpanFromCharSpan(CharSpan span)
