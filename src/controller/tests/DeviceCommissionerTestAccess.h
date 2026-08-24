@@ -40,6 +40,30 @@ public:
 
     void SetDeviceBeingCommissioned(DeviceProxy * device) { mCommissioner->mDeviceBeingCommissioned = device; }
 
+    static CHIP_ERROR VerifyNetworkClientIdentity(ByteSpan clientIdentity, ByteSpan possessionSignature, ByteSpan nonce,
+                                                  Credentials::MutableCertificateKeyId outClientIdentifier)
+    {
+        return Controller::DeviceCommissioner::VerifyNetworkClientIdentity(clientIdentity, possessionSignature, nonce,
+                                                                           outClientIdentifier);
+    }
+
+    void SetNetworkClientRegistration(Controller::NetworkIdentityRegistrar * registrar, ByteSpan clientIdentifier)
+    {
+        mCommissioner->mNetworkClientRegistration.registrar = registrar;
+        VerifyOrDie(clientIdentifier.size() == mCommissioner->mNetworkClientRegistration.clientIdentifier.size());
+        memcpy(mCommissioner->mNetworkClientRegistration.clientIdentifier.data(), clientIdentifier.data(), clientIdentifier.size());
+    }
+
+    Controller::NetworkIdentityRegistrar * GetNetworkClientRegistrar() const
+    {
+        return mCommissioner->mNetworkClientRegistration.registrar;
+    }
+
+    // Returns true if the revocation is in flight, i.e. a continuation could be installed for it.
+    bool RollBackNetworkClientIdentity() { return mCommissioner->RollBackNetworkClientIdentity(); }
+
+    void CancelCommissioningInteractions() { mCommissioner->CancelCommissioningInteractions(); }
+
     static void OnICDManagementRegisterClientResponse(
         Controller::DeviceCommissioner * commissioner,
         const app::Clusters::IcdManagement::Commands::RegisterClientResponse::DecodableType & data)

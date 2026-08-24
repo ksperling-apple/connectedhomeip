@@ -97,6 +97,9 @@ const char * StageToString(CommissioningStage stage)
     case kWiFiNetworkSetup:
         return "WiFiNetworkSetup";
 
+    case kInstallClientIdentity:
+        return "InstallClientIdentity";
+
     case kThreadNetworkSetup:
         return "ThreadNetworkSetup";
 
@@ -150,6 +153,9 @@ const char * StageToString(CommissioningStage stage)
 
     case kRequestThreadCredentials:
         return "RequestThreadCredentials";
+
+    case kGetNetworkIdentity:
+        return "GetNetworkIdentity";
 
     case kCleanup:
         return "Cleanup";
@@ -240,6 +246,9 @@ const char * MetricKeyForCommissioningStage(CommissioningStage stage)
     case kWiFiNetworkSetup:
         return "core_commissioning_stage_wifi_network_setup";
 
+    case kInstallClientIdentity:
+        return "core_commissioning_stage_install_client_identity";
+
     case kThreadNetworkSetup:
         return "core_commissioning_stage_thread_network_setup";
 
@@ -293,6 +302,9 @@ const char * MetricKeyForCommissioningStage(CommissioningStage stage)
 
     case kRequestThreadCredentials:
         return "core_commissioning_stage_request_thread_credentials";
+
+    case kGetNetworkIdentity:
+        return "core_commissioning_stage_get_network_identity";
 
     case kCleanup:
         return "core_commissioning_stage_cleanup";

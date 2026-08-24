@@ -698,6 +698,7 @@ TEST_F(AutoCommissionerTest, SetCommissioningParametersCopiesSpans)
     CommissioningParameters params{};
     params.SetAttestationNonce(sourceSpan32);
     params.SetCSRNonce(sourceSpan32);
+    params.SetPDCPossessionNonce(sourceSpan32);
     params.SetThreadOperationalDataset(sourceSpan32);
     params.SetWiFiCredentials(WiFiCredentials(sourceSpan32, sourceSpan32));
     params.SetCountryCode(sourceCountryCode);
@@ -711,6 +712,10 @@ TEST_F(AutoCommissionerTest, SetCommissioningParametersCopiesSpans)
     ASSERT_TRUE(storedParams.GetCSRNonce().HasValue());
     EXPECT_NE(storedParams.GetCSRNonce().Value().data(), sourceSpan32.data());
     EXPECT_TRUE(storedParams.GetCSRNonce().Value().data_equal(sourceSpan32));
+
+    ASSERT_TRUE(storedParams.GetPDCPossessionNonce().HasValue());
+    EXPECT_NE(storedParams.GetPDCPossessionNonce().Value().data(), sourceSpan32.data());
+    EXPECT_TRUE(storedParams.GetPDCPossessionNonce().Value().data_equal(sourceSpan32));
 
     ASSERT_TRUE(storedParams.GetThreadOperationalDataset().HasValue());
     EXPECT_NE(storedParams.GetThreadOperationalDataset().Value().data(), sourceSpan32.data());
